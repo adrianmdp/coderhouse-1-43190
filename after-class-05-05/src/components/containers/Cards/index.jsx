@@ -6,8 +6,15 @@ const Cards = () => {
 
   return (
     <div className="cards">
-      {tasks.map((task) => (
-        <Card {...task} />
+      {tasks.map((task, i) => (
+        <Card
+          title={task.title}
+          asignedUser={task.asignedUser}
+          category={task.category}
+          description={task.description}
+          owner={task.owner}
+          key={i}
+        />
       ))}
     </div>
   );

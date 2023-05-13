@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { AddTaskForm, Footer, Header } from "../../components";
 
 const AddTaskPage = () => {
@@ -29,8 +29,8 @@ const AddTaskPage = () => {
           </tr>
         </thead>
         <tbody>
-          {tasks.map((task) => (
-            <tr>
+          {tasks.map((task, i) => (
+            <tr key={i}>
               <td>{task.title}</td>
               <td>{task.description}</td>
               <td>{task.category}</td>

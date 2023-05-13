@@ -1,2 +1,2 @@
-export { AddCategory } from "./addCategory";
+export { AddCategoryForm } from "./addCategory";
 export { AddTaskForm } from "./addTask";

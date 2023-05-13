@@ -1,6 +1,9 @@
 import { useState } from "react";
 
 const AddTaskForm = ({ onSubmit }) => {
+  const [categories, setCategories] = useState(
+    JSON.parse(localStorage.getItem("categories")) || []
+  );
   const [fields, setFields] = useState({
     title: "",
     description: "",
@@ -43,7 +46,21 @@ const AddTaskForm = ({ onSubmit }) => {
       </div>
       <div>
         <label htmlFor="">Categoría</label>
-        <input
+        <select
+          name="category"
+          onChange={(e) =>
+            setFields((prevState) => ({
+              ...prevState,
+              category: e.target.value,
+            }))
+          }
+        >
+          {categories.map((cat) => (
+            <option value={cat.name}>{cat.name}</option>
+          ))}
+        </select>
+
+        {/* <input
           type="text"
           name="category"
           value={fields.category}
@@ -53,7 +70,7 @@ const AddTaskForm = ({ onSubmit }) => {
               category: e.target.value,
             }))
           }
-        />
+        /> */}
       </div>
       <div>
         <label htmlFor="">Responsable</label>
